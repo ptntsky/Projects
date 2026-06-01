@@ -1,1 +1,11 @@
-
+%1.5
+h=0.2; a=0.25; b=2.25;
+f= @(x) exp(-2*x)+x.^2-1;
+x_values = a:h:b;
+results = f(x_values);
+figure
+plot(x_values, results, '-b', 'LineWidth', 1.5)
+grid on
+title('Графік функції f(x)')
+xlabel('x')
+ylabel('f(x)')
