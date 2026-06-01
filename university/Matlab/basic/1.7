@@ -1,1 +1,28 @@
+%1.7
+clear; clc; close all;
 
+x = 86;
+y = 48;
+
+if x > y
+    f = sin(log(x^3 + y)) - tan(5*x);
+else
+    f = (log(y^(x-y) - 2*x) + 1) / (1 + x^5);
+end
+
+disp('Результат завдання 1.2:');
+disp(f)
+
+%1.5
+h = 0.2; a = 0.25; b = 2.25;
+f_func = @(x) exp(-2*x) + x.^2 - 1; % Назвав f_func, щоб змінна не перетиналася з f із 1.2
+
+x_values = a:h:b;
+results = f_func(x_values);
+
+figure
+plot(x_values, results, '-b', 'LineWidth', 1.5)
+grid on
+title('Графік функції f(x)')
+xlabel('x')
+ylabel('f(x)')
