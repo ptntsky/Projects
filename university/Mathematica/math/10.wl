@@ -1,1 +1,5 @@
-
+Clear[f, x, a]
+f = x*Exp[-a*x]
+Integrate[f, x]
+ans = Integrate[f, {x, -3, -1}]
+N[ans /. a -> 13]
