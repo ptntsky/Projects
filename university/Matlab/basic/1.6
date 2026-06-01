@@ -1,1 +1,27 @@
+%1.6
+clear
+x1=0.7;x2=7;m=50;r=5;%змінні
 
+x = linspace(x1,x2,m);%масив з кількістю точок m
+
+exact_val=log(x)
+
+a = (x - 1) ./ (x + 1);%обчислення а для формули
+
+approx_val = zeros(1, m);%попередньо виділили память
+
+for k = 1:r;
+
+approx_val = approx_val + (a.^(2*k - 1)) / (2*k - 1);
+
+end
+
+approx_val = 2 * approx_val;
+error_val = abs(exact_val - approx_val);
+
+figure;%виведення
+plot(x, error_val, '-r', 'LineWidth', 2);
+grid on;
+title('Залежність похибки від аргументу x');
+xlabel('x');
+ylabel('Похибка (Точне - Наближене)');
