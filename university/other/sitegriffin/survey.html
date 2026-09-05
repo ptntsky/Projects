@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анкета жителя Куахога — Peter Griffin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">&larr; На головну</a>
+    </nav>
+    <h1>Анкета оцінки знань та лояльності</h1>
+    <p>Будь ласка, заповніть усі обов'язкові поля нижче перед візитом до Петорії.</p>
+  </header>
+
+  <main>
+    <form action="#" method="post">
+
+      <!-- Поле логіна -->
+      <div>
+        <label for="survey-login">Ваш позивний / логін:</label>
+        <input type="text" id="survey-login" name="user_login" placeholder="Введіть нікнейм" required>
+      </div>
+
+      <br>
+
+      <!-- Поле Email -->
+      <div>
+        <label for="survey-email">Контактна пошта:</label>
+        <input type="email" id="survey-email" name="user_email" placeholder="name@domain.com" required>
+      </div>
+
+      <br>
+
+      <!-- Випадаючий список (select) -->
+      <div>
+        <label for="survey-drink">Улюблений напій у барі «П'яний молюск»:</label>
+        <select id="survey-drink" name="favorite_drink">
+          <option value="pawtucket" selected>Pawtucket Patriot Ale</option>
+          <option value="cider">Яблучний сидр</option>
+          <option value="water">Звичайна вода з-під крана</option>
+          <option value="tea">Холодний чай</option>
+        </select>
+      </div>
+
+      <br>
+
+      <!-- Радіокнопки (однакова назва name для взаємного виключення) -->
+      <fieldset>
+        <legend>Хто здобуде перемогу в наступному раунді?</legend>
+        <label>
+          <input type="radio" name="battle_winner" value="peter" checked>
+          Пітер Гріффін
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="battle_winner" value="chicken">
+          Гігантський Півень Ерні
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="battle_winner" value="draw">
+          Нічия (обоє впадуть з мосту)
+        </label>
+      </fieldset>
+
+      <br>
+
+      <!-- Чекбокси -->
+      <fieldset>
+        <legend>Які інженерні проєкти Пітера ви готові профінансувати? (декілька варіантів):</legend>
+        <label>
+          <input type="checkbox" name="support_project" value="petercopter">
+          Вертоліт The Petercopter
+        </label>
+        <br>
+        <label>
+          <input type="checkbox" name="support_project" value="hindenpeter">
+          Дирижабль The Hindenpeter
+        </label>
+        <br>
+        <label>
+          <input type="checkbox" name="support_project" value="petoria">
+          Розширення кордонів Петорії
+        </label>
+      </fieldset>
+
+      <br>
+
+      <!-- Текстова зона -->
+      <div>
+        <label for="survey-comment">Ваші пропозиції або скарги для Пітера:</label><br>
+        <textarea id="survey-comment" name="user_comment" rows="5" cols="45" placeholder="Напишіть кілька речень..."></textarea>
+      </div>
+
+      <br>
+
+      <!-- Кнопки керування -->
+      <div>
+        <button type="submit">Надіслати відповіді</button>
+        <button type="reset">Скинути всі відповіді</button>
+      </div>
+
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Офіційний департамент статистики Петорії.</p>
+  </footer>
+
+</body>
+</html>

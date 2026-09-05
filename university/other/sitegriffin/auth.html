@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вхід та Реєстрація — Peter Griffin</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">&larr; Повернутися на головну</a>
+    </nav>
+    <h1>Особистий кабінет громадянина Петорії</h1>
+  </header>
+
+  <main>
+    <!-- ФОРМА АВТОРИЗАЦІЇ (ВХІД) -->
+    <section>
+      <h2>Авторизація</h2>
+      <form action="#" method="post">
+        <div>
+          <label for="login-email">Електронна пошта:</label>
+          <input type="email" id="login-email" name="login_email" placeholder="name@domain.com" required>
+        </div>
+
+        <div>
+          <label for="login-pass">Пароль:</label>
+          <input type="password" id="login-pass" name="login_pass" minlength="6" placeholder="Введіть пароль" required>
+        </div>
+
+        <div>
+          <button type="submit">Увійти</button>
+          <button type="reset">Очистити</button>
+        </div>
+      </form>
+    </section>
+
+    <hr>
+
+    <!-- ФОРМА РЕЄСТРАЦІЇ -->
+    <section>
+      <h2>Реєстрація нового користувача</h2>
+      <form action="#" method="post">
+        <div>
+          <label for="reg-email">Електронна пошта:</label>
+          <input type="email" id="reg-email" name="reg_email" placeholder="name@domain.com" required>
+        </div>
+
+        <div>
+          <label for="reg-pass">Пароль (від 6 символів):</label>
+          <input type="password" id="reg-pass" name="reg_pass" minlength="6" placeholder="Придумайте пароль" required>
+        </div>
+
+        <div>
+          <label for="reg-pass-repeat">Повторіть пароль:</label>
+          <input type="password" id="reg-pass-repeat" name="reg_pass_repeat" minlength="6" placeholder="Повторіть пароль" required>
+        </div>
+
+        <div>
+          <button type="submit">Зареєструватися</button>
+          <button type="reset">Очистити</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Peter Griffin Enterprises. Усі права захищено.</p>
+  </footer>
+
+</body>
+</html>

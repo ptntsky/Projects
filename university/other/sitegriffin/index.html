@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter Griffin — Портфоліо</title>
+  
+  <!-- Шрифт Poppins з Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+      </svg>
+      <strong>Peter Griffin</strong>
+    </div>
+
+    <!-- Пошук -->
+    <form action="/search" method="get">
+      <label for="search-input">Пошук:</label>
+      <input type="search" id="search-input" name="q" placeholder="Пошук...">
+      <button type="submit">Знайти</button>
+    </form>
+
+    <!-- Навігація -->
+    <nav>
+      <ul>
+        <li><a href="#about">Про мене</a></li>
+        <li><a href="#projects">Проєкти</a></li>
+        <li><a href="#achievements">Досягнення</a></li>
+        <li><a href="#contact">Контакти</a></li>
+        <li><a href="auth.html">Вхід / Реєстрація</a></li>
+        <li><a href="survey.html">Опитувальник</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <h1>Пітер Гріффін &mdash; Інженер геніальних ідей</h1>
+      <p>Спеціаліст з безпеки на броварні та творець держави Петорія.</p>
+      <img src="assets/images/peter.png" alt="Фотопортрет Пітера Гріффіна" width="200">
+    </section>
+
+    <!-- Статті / новини -->
+    <section id="about">
+      <h2>Хроніки та замітки</h2>
+      <article>
+        <h3>Битва з Гігантським Півнем</h3>
+        <time datetime="2026-09-01">1 вересня 2026</time>
+        <p>Звичайний прострочений купон переріс у багатогодинне протистояння на вулицях міста.</p>
+      </article>
+      <article>
+        <h3>Чому пташка &mdash; це головне слово</h3>
+        <time datetime="2026-08-20">20 серпня 2026</time>
+        <p>Короткий аналіз культового хіта The Trashmen та його вплив на сусідів.</p>
+      </article>
+    </section>
+
+    <!-- Картки проєктів -->
+    <section id="projects">
+      <h2>Мої проєкти (My Projects)</h2>
+      <article>
+        <h3>The Petercopter</h3>
+        <p>Персональний гелікоптер підвищеної небезпеки для термінових польотів у бар.</p>
+      </article>
+
+      <article>
+        <h3>The Hindenpeter</h3>
+        <p>Розкішний дирижабль для демонстрації величі над будинком Джо Свонсона.</p>
+      </article>
+
+      <article>
+        <h3>Суверенна держава Петорія</h3>
+        <p>Геополітичний стартап з проголошення заднього двору незалежною монархією.</p>
+      </article>
+    </section>
+
+    <!-- Досягнення -->
+    <section id="achievements">
+      <h2>Досягнення та нагороди</h2>
+      <ul>
+        <li>Почесний гість бару «The Drunken Clam»</li>
+        <li>Чемпіон ярмарку з поїдання крилець</li>
+        <li>Державний діяч року за версією Петорії</li>
+      </ul>
+    </section>
+
+    <!-- Зворотний зв'язок -->
+    <section id="contact">
+      <h2>Зворотний зв&apos;язок</h2>
+      <form action="#" method="post">
+        <div>
+          <label for="user-name">Ім&apos;я:</label>
+          <input type="text" id="user-name" name="name" placeholder="Введіть ім'я" required>
+        </div>
+        <div>
+          <label for="user-email">Електронна пошта:</label>
+          <input type="email" id="user-email" name="email" placeholder="example@mail.com" required>
+        </div>
+        <div>
+          <label for="user-message">Повідомлення:</label>
+          <textarea id="user-message" name="message" rows="4" placeholder="Ваш текст..."></textarea>
+        </div>
+        <button type="submit">Надіслати</button>
+        <button type="reset">Скинути</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Офіційний сайт Пітера Гріффіна. Усі права захищено.</p>
+    <p>Рейтинг: &#9733;&#9733;&#9733;&#9733;&#9734; (4/5)</p>
+  </footer>
+
+</body>
+</html>
