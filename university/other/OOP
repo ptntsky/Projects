@@ -1,82 +1,79 @@
-#include <iostream>
-
-using namespace std;
+#include <stdio.h>
 
 struct Interval {
     int first;
     int second;
-
-    bool check();
-    void input();
-    void output();
-    bool rangeCheck(int number);
 };
 
-bool Interval::check() {
-    return first < second;
+// Перевірка: ліва межа має бути суворо меншою за праву
+int check(struct Interval ob) {
+    return ob.first < ob.second;
 }
 
-void Interval::input() {
-    while (true) {
-        cout << "Введіть ліву та праву межі інтервалу (first second): ";
-        if (!(cin >> first >> second)) {
-            cin.clear();
-            while (cin.get() != '\n');
-            cout << "Помилка: введіть цілі числа!\n";
+// Введення з валідацією
+void input(struct Interval *ob) {
+    while (1) {
+        printf("Введіть ліву та праву межі інтервалу (first second): ");
+        if (scanf("%d %d", &ob->first, &ob->second) != 2) {
+            // Очищення буфера, якщо ввели букви
+            while (getchar() != '\n');
+            printf("Помилка: введіть цілі числа!\n");
             continue;
         }
-        if (check()) {
+        if (check(*ob)) {
             break;
         }
-        cout << "Помилка: ліва межа має бути меншою за праву (first < second)!\n";
+        printf("Помилка: ліва межа повинна бути меншою за праву (first < second)!\n");
     }
 }
 
-void Interval::output() {
-    cout << "[" << first << ", " << second << ")\n";
+// Виведення
+void output(struct Interval ob) {
+    printf("[%d, %d)\n", ob.first, ob.second);
 }
 
-bool Interval::rangeCheck(int number) {
-    return (number >= first && number < second);
+// Перевірка належності числа
+int rangeCheck(struct Interval ob, int number) {
+    return (number >= ob.first && number < ob.second);
 }
 
-void rangePrintUnion(Interval ob1, Interval ob2) {
-    int min_val = (ob1.first < ob2.first) ? ob1.first : ob2.first;
-    int max_val = (ob1.second > ob2.second) ? ob1.second : ob2.second;
+// Виведення чисел об'єднання
+void rangePrintUnion(struct Interval ob1, struct Interval ob2) {
+    int min_val = ob1.first < ob2.first ? ob1.first : ob2.first;
+    int max_val = ob1.second > ob2.second ? ob1.second : ob2.second;
 
-    cout << "Цілі числа об'єднання діапазонів: ";
+    printf("Цілі числа об'єднання діапазонів: ");
     for (int i = min_val; i < max_val; i++) {
-        if (ob1.rangeCheck(i) || ob2.rangeCheck(i)) {
-            cout << i << " ";
+        if (rangeCheck(ob1, i) || rangeCheck(ob2, i)) {
+            printf("%d ", i);
         }
     }
-    cout << "\n";
+    printf("\n");
 }
 
-int main() {
-    Interval ob1, ob2;
+int main(void) {
+    struct Interval ob1, ob2;
 
-    cout << "=== Введення першого інтервалу (ob1) ===\n";
-    ob1.input();
-    cout << "Інтервал 1: ";
-    ob1.output();
+    printf("=== Введення першого інтервалу (ob1) ===\n");
+    input(&ob1);
+    printf("Інтервал 1: ");
+    output(ob1);
 
-    cout << "\n=== Введення другого інтервалу (ob2) ===\n";
-    ob2.input();
-    cout << "Інтервал 2: ";
-    ob2.output();
+    printf("\n=== Введення другого інтервалу (ob2) ===\n");
+    input(&ob2);
+    printf("Інтервал 2: ");
+    output(ob2);
 
     int test_num;
-    cout << "\nВведіть число для перевірки належності до ob1: ";
-    cin >> test_num;
-
-    if (ob1.rangeCheck(test_num)) {
-        cout << "Число " << test_num << " належить інтервалу ob1\n";
+    printf("\nВведіть число для перевірки належності до ob1: ");
+    scanf("%d", &test_num);
+    if (rangeCheck(ob1, test_num)) {
+        printf("Число %d належить інтервалу ob1\n", test_num);
     } else {
-        cout << "Число " << test_num << " НЕ належить інтервалу ob1\n";
+        printf("Число %d НЕ належить інтервалу ob1\n", test_num);
     }
 
-    cout << "\n";
+    printf("\n");
     rangePrintUnion(ob1, ob2);
 
     return 0;
