@@ -5,45 +5,40 @@ struct Interval {
     int second;
 };
 
-// Перевірка: ліва межа має бути суворо меншою за праву
 int check(struct Interval ob) {
-    return ob.first < ob.second;
+    return ob.first<ob.second;
 }
 
-// Введення з валідацією
 void input(struct Interval *ob) {
     while (1) {
-        printf("Введіть ліву та праву межі інтервалу (first second): ");
-        if (scanf("%d %d", &ob->first, &ob->second) != 2) {
-            // Очищення буфера, якщо ввели букви
+        printf("Введіть ліву та праву межу: ");
+        if (scanf("%d %d",&ob->first,&ob->second) != 2) {
+            // Очищення буферу якщо ввели букви
             while (getchar() != '\n');
-            printf("Помилка: введіть цілі числа!\n");
+            printf("Помилка, введіть цілі числа\n");
             continue;
         }
         if (check(*ob)) {
             break;
         }
-        printf("Помилка: ліва межа повинна бути меншою за праву (first < second)!\n");
+        printf("Помилка, ліва межа повинна бути меншою за праву\n");
     }
 }
 
-// Виведення
 void output(struct Interval ob) {
-    printf("[%d, %d)\n", ob.first, ob.second);
+    printf("[%d, %d)\n",ob.first,ob.second);
 }
 
-// Перевірка належності числа
 int rangeCheck(struct Interval ob, int number) {
-    return (number >= ob.first && number < ob.second);
+    return (number>=ob.first && number<ob.second);
 }
 
-// Виведення чисел об'єднання
 void rangePrintUnion(struct Interval ob1, struct Interval ob2) {
     int min_val = ob1.first < ob2.first ? ob1.first : ob2.first;
     int max_val = ob1.second > ob2.second ? ob1.second : ob2.second;
 
     printf("Цілі числа об'єднання діапазонів: ");
-    for (int i = min_val; i < max_val; i++) {
+    for (int i=min_val; i<max_val; i++) {
         if (rangeCheck(ob1, i) || rangeCheck(ob2, i)) {
             printf("%d ", i);
         }
@@ -51,15 +46,15 @@ void rangePrintUnion(struct Interval ob1, struct Interval ob2) {
     printf("\n");
 }
 
-int main(void) {
+int main() {
     struct Interval ob1, ob2;
 
-    printf("=== Введення першого інтервалу (ob1) ===\n");
+    printf("Введення першого інтервалу (ob1)\n");
     input(&ob1);
     printf("Інтервал 1: ");
     output(ob1);
 
-    printf("\n=== Введення другого інтервалу (ob2) ===\n");
+    printf("\nВведення другого інтервалу (ob2)\n");
     input(&ob2);
     printf("Інтервал 2: ");
     output(ob2);
