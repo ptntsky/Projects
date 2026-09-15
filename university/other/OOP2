@@ -20,17 +20,17 @@ bool Interval::check() {
 
 void Interval::input() {
     while (true) {
-        cout << "Введіть ліву та праву межі інтервалу (first second): ";
+        cout << "Введіть ліву та праву межі інтервалу: ";
         if (!(cin >> first >> second)) {
             cin.clear();
             while (cin.get() != '\n');
-            cout << "Помилка: введіть коректні числа!\n";
+            cout << "Помилка, введіть коректні числа\n";
             continue;
         }
         if (check()) {
             break;
         }
-        cout << "Помилка: ліва межа має бути меншою за праву (first < second)!\n";
+        cout << "Помилка, ліва межа має бути меншою за праву\n";
     }
 }
 
@@ -58,12 +58,12 @@ void rangePrintUnion(Interval ob1, Interval ob2) {
 int main() {
     Interval ob1, ob2;
 
-    cout << "Введення першого інтервалу (ob1)" << endl;
+    cout << "ob1:" << endl;
     ob1.input();
     cout << "Інтервал 1: ";
     ob1.output();
 
-    cout << "\nВведення другого інтервалу (ob2)" << endl;
+    cout << "\nob2:" << endl;
     ob2.input();
     cout << "Інтервал 2: ";
     ob2.output();
