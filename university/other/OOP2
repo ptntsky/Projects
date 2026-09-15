@@ -6,14 +6,14 @@ struct Interval {
     int first;
     int second;
 
-    // Оголошення функцій-членів (методів)
+
     bool check();
     void input();
     void output();
     bool rangeCheck(int number);
 };
 
-// Реалізація методів ЗА МЕЖАМИ структури (вимога методички)
+
 bool Interval::check() {
     return first < second;
 }
@@ -42,7 +42,6 @@ bool Interval::rangeCheck(int number) {
     return (number >= first && number < second);
 }
 
-// Зовнішня функція для двох об'єктів
 void rangePrintUnion(Interval ob1, Interval ob2) {
     int min_val = (ob1.first < ob2.first) ? ob1.first : ob2.first;
     int max_val = (ob1.second > ob2.second) ? ob1.second : ob2.second;
@@ -59,12 +58,12 @@ void rangePrintUnion(Interval ob1, Interval ob2) {
 int main() {
     Interval ob1, ob2;
 
-    cout << "=== Введення першого інтервалу (ob1) ===" << endl;
+    cout << "Введення першого інтервалу (ob1)" << endl;
     ob1.input();
     cout << "Інтервал 1: ";
     ob1.output();
 
-    cout << "\n=== Введення другого інтервалу (ob2) ===" << endl;
+    cout << "\nВведення другого інтервалу (ob2)" << endl;
     ob2.input();
     cout << "Інтервал 2: ";
     ob2.output();
