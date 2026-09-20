@@ -1,0 +1,108 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+const int MAX_SIZE = 100;
+
+// Черга порожня тоді, коли голова (head) наздогнала хвіст (tail).
+// Тобто всі, хто зайшов, уже вийшли.
+bool isQueueEmpty(int head, int tail) {
+    return head == tail;
+}
+
+// Операція ENQUEUE (стати в кінець черги):
+// Людина стає на вільне місце (queue[tail]), після чого
+// мітка хвоста зсувається на наступне вільне місце вперед (tail++).
+void enqueue(int queue[], int &tail, int value) {
+    if (tail < MAX_SIZE) {
+        queue[tail] = value;
+        tail++;
+    }
+}
+
+// Операція DEQUEUE (вийти з початку черги):
+// Обслуговуємо першу людину в голові (queue[head]),
+// після чого мітка голови зсувається до наступного за нею (head++).
+int dequeue(int queue[], int &head) {
+    int val = queue[head];
+    head++;
+    return val;
+}
+
+// Виведення: читаємо так, як люди стоять — від першого (head) до останнього (tail - 1).
+void printQueue(int queue[], int head, int tail, const char* name) {
+    cout << name << " (початок -> кінець): ";
+    if (isQueueEmpty(head, tail)) {
+        cout << "порожня\n";
+        return;
+    }
+    for (int i = head; i < tail; i++) {
+        cout << queue[i] << " ";
+    }
+    cout << "\n";
+}
+
+int main() {
+    srand(time(0));
+
+    int n;
+    cout << "Введіть кількість елементів N: ";
+    cin >> n;
+
+    // Головна черга:
+    // head — номер того, хто зараз біля каси (на вихід).
+    // tail — номер першого вільного місця в кінці (на вхід).
+    int q[MAX_SIZE], head = 0, tail = 0;
+
+    // Створюємо дві окремі допоміжні лінії черги:
+    // одна суто для парних, друга — суто для непарних.
+    int q_even[MAX_SIZE], head_even = 0, tail_even = 0;
+    int q_odd[MAX_SIZE], head_odd = 0, tail_odd = 0;
+
+    // КРОК 1: Наповнюємо початкову чергу випадковими людьми/числами.
+    for (int i = 0; i < n; i++) {
+        enqueue(q, tail, rand() % 100 - 50);
+    }
+
+    printQueue(q, head, tail, "Початкова черга");
+
+    // КРОК 2: Фільтрація через турнікет.
+    // Беремо людей по черзі з голови вихідної черги q (dequeue).
+    // Якщо число парне -> направляємо в кінець черги q_even.
+    // Якщо непарне -> направляємо в кінець черги q_odd.
+    // Властивість FIFO зберігає їх первинний взаємний порядок!
+    while (!isQueueEmpty(head, tail)) {
+        int val = dequeue(q, head);
+        if (val % 2 == 0) {
+            enqueue(q_even, tail_even, val);
+        } else {
+            enqueue(q_odd, tail_odd, val);
+        }
+    }
+
+    // КРОК 3: Перезапис головної черги.
+    // Початкова черга спорожніла. Обнуляємо покажчики q,
+    // щоб записати в неї числа за новою вимогою:
+    // "парні на початку, непарні в кінці".
+    head = 0;
+    tail = 0;
+
+    // Спочатку запускаємо в q ВСІХ людей з черги парних:
+    while (!isQueueEmpty(head_even, tail_even)) {
+        enqueue(q, tail, dequeue(q_even, head_even));
+    }
+
+    // Одразу за ними дописуємо в q ВСІХ людей з черги непарних:
+    while (!isQueueEmpty(head_odd, tail_odd)) {
+        enqueue(q, tail, dequeue(q_odd, head_odd));
+    }
+
+    // КРОК 4: Виводимо результат.
+    // Отримуємо ту саму чергу, але всі парні згруповані спереду,
+    // а непарні — позаду, причому нічий внутрішній порядок не збився.
+    printQueue(q, head, tail, "Оновлена черга");
+
+    return 0;
+}
