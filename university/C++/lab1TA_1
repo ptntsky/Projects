@@ -1,0 +1,97 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+const int MAX_SIZE = 100;
+
+// Перевірка: чи є взагалі тарілки в стопці?
+// Якщо top == -1, значить стіл порожній.
+bool isStackEmpty(int top) {
+    return top == -1;
+}
+
+// Операція PUSH (покласти тарілку нагору):
+// 1. Дивимося, чи є ще місце на столі (чи не досягли стелі MAX_SIZE).
+// 2. Піднімаємо покажчик рівня стопки на 1 вгору (++top).
+// 3. Кладемо туди число.
+// Знак '&' біля top обов'язковий: функція змінює реальний індекс у пам'яті!
+void push(int stack[], int &top, int value) {
+    if (top < MAX_SIZE - 1) {
+        top++;
+        stack[top] = value;
+    }
+}
+
+// Операція POP (зняти верхню тарілку):
+// 1. Беремо значення з самої вершини стопки (stack[top]).
+// 2. Опускаємо покажчик вершини на 1 вниз (top--).
+// 3. Повертаємо це значення нам у руки.
+int pop(int stack[], int &top) {
+    if (!isStackEmpty(top)) {
+        int val = stack[top];
+        top--;
+        return val;
+    }
+    return 0;
+}
+
+// Виведення стека:
+// Оскільки дивитися на стопку логічно згори вниз,
+// друкуємо масив задом наперед: від вершини (top) до дна (0).
+void printStack(int stack[], int top, const char* name) {
+    cout << name << " (вершина -> дно): ";
+    if (isStackEmpty(top)) {
+        cout << "порожній\n";
+        return;
+    }
+    for (int i = top; i >= 0; i--) {
+        cout << stack[i] << " ";
+    }
+    cout << "\n";
+}
+
+int main() {
+    srand(time(0));
+
+    int n;
+    cout << "Введіть кількість елементів N: ";
+    cin >> n;
+
+    // Готуємо три порожні столи для стопок:
+    // a — початкова стопка, even — для парних чисел, odd — для непарних.
+    int a[MAX_SIZE], top_a = -1;
+    int even_arr[MAX_SIZE], top_even = -1;
+    int odd_arr[MAX_SIZE], top_odd = -1;
+
+    // КРОК 1: Заповнюємо початкову стопку випадковими числами.
+    // Кожне число лягає зверху попереднього.
+    for (int i = 0; i < n; i++) {
+        push(a, top_a, rand() % 100 - 50);
+    }
+
+    printStack(a, top_a, "Початковий стек");
+
+    // КРОК 2: Розподіл (сортування).
+    // Поки в головній стопці 'a' є тарілки:
+    // 1. Знімаємо верхню (pop).
+    // 2. Дивимося на число:
+    //    - якщо ділиться на 2 без залишку -> кладемо нагору стопки парних (push).
+    //    - якщо ні -> кладемо нагору стопки непарних (push).
+    while (!isStackEmpty(top_a)) {
+        int val = pop(a, top_a);
+        if (val % 2 == 0) {
+            push(even_arr, top_even, val);
+        } else {
+            push(odd_arr, top_odd, val);
+        }
+    }
+
+    // КРОК 3: Головна стопка спорожніла, зате на двох інших лежать відсортовані числа.
+    // Виводимо обидві стопки.
+    printStack(even_arr, top_even, "Стек парних");
+    printStack(odd_arr, top_odd, "Стек непарних");
+
+    return 0;
+}
