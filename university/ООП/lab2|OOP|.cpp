@@ -23,13 +23,45 @@
 
 using namespace std;
 
-struct X{
-    char arr[266];
-} 
+struct Text {
+    char data[256];
+};
 
-opminus()
+Text operator-(Text a, Text b) {
+    Text res;
+    int len = 0;
+    bool seen[256] = {false};
+
+    for (int i = 0; a.data[i] != '\0'; i++) {
+        char ch = a.data[i];
+        bool found = false;
+
+        for (int j = 0; b.data[j] != '\0'; j++) {
+            if (b.data[j] == ch && !seen[j]) {
+                found = true;
+                seen[j] = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            res.data[len++] = ch;
+        }
+    }
+
+    res.data[len] = '\0';
+    return res;
+}
 
 int main() {
+    Text s1 = {"banana"};
+    Text s2 = {"an"};
 
-   return 0;
+    Text s3 = s1 - s2;
+
+    cout << s1.data << endl;
+    cout << s2.data << endl;
+    cout << s3.data << endl;
+
+    return 0;
 }
