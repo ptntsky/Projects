@@ -27,7 +27,7 @@ struct Text {
     char data[256];
 };
 
-Text operator-(Text a, Text b) {
+Text operator-(const Text& a, const Text& b) {
     Text res;
     int len = 0;
     bool seen[256] = {false};
@@ -54,14 +54,17 @@ Text operator-(Text a, Text b) {
 }
 
 int main() {
-    Text s1 = {"banana"};
-    Text s2 = {"an"};
+    Text s1, s2;
+
+    cout << "S1: ";
+    cin.getline(s1.data, 256);
+
+    cout << "S2: ";
+    cin.getline(s2.data, 256);
 
     Text s3 = s1 - s2;
 
-    cout << s1.data << endl;
-    cout << s2.data << endl;
-    cout << s3.data << endl;
+    cout << "S3: " << s3.data << endl;
 
     return 0;
 }
