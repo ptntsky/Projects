@@ -1,0 +1,299 @@
+/* 1. Змінні теми (:root) та скидання */
+:root {
+  --primary-color: #2b5c8f;
+  --primary-hover: #1e4267;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #cbd5e1;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+/* 2. Контейнер та секції */
+header, main, footer {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+section {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+
+/* 3. Заголовки та спадкування */
+h1, h2, h3 {
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.3rem;
+}
+
+/* 4. Посилання та псевдокласи */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* 5. Зображення */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 1rem 0;
+}
+
+/* 6. Форми, поля введення та кнопки */
+form div {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(43, 92, 143, 0.15);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button[type="reset"] {
+  background-color: #e2e8f0;
+  color: var(--text-main);
+  margin-left: 0.5rem;
+}
+
+:root {
+  --primary-color: #2b5c8f;
+  --primary-hover: #1e4267;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #cbd5e1;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+header, main, footer {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+section {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+
+h1, h2, h3 {
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.3rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 1rem 0;
+}
+
+form div {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(43, 92, 143, 0.15);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button[type="reset"] {
+  background-color: #e2e8f0;
+  color: var(--text-main);
+  margin-left: 0.5rem;
+}
+
+button[type="reset"]:hover {
+  background-color: #cbd5e1;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 1.5rem 0;
+}
+
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
