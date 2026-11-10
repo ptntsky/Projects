@@ -1,0 +1,278 @@
+:root {
+  --primary-color: #a5d8ff;    /* Чистий крижано-блакитний (Ice Blue) для кнопок та акцентів */
+  --primary-hover: #c5e7ff;    /* Світліший крижаний відтінок при наведенні */
+  --bg-color: #09223b;         /* Глибокий темно-синій фон */
+  --card-bg: #f9f6f0;          /* Чистий, м'який молочно-кремовий колір панелей */
+  --card-text: #112233;        /* Глибокий темно-синій текст для панелей */
+  --text-main: #f0e6d2;        /* Світлий текст для шапки/футера */
+  --text-muted: #6b8299;       /* Приглушений колір для дат */
+  --border-color: #1c3f60;     /* Делікатна синя рамка */
+  --card-border: #e6dfd3;      /* М'яка рамка для молочних панелей */
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* Базові скидання стилів */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+header, main, footer {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Стилі для основних панелей (секцій) */
+section {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+section h1, section h2, section h3 {
+  color: var(--card-text);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+section h2 {
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--card-border);
+  padding-bottom: 0.3rem;
+}
+
+time {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Навігація та випадаюче підменю (Lab 3, п. 1) */
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+nav ul li.dropdown {
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: -12px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% - 8px);
+  left: 0;
+  background-color: var(--card-bg);
+  min-width: 150px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  z-index: 10;
+  padding: 0.5rem 0;
+  list-style: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content li {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content a {
+  padding: 0.4rem 1rem;
+  display: block;
+  white-space: nowrap;
+  color: var(--card-text);
+}
+
+.dropdown-content a:hover {
+  background-color: #ebe4d5;
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+/* Елемент пошуку (Lab 3, п. 4) */
+.search-container {
+  margin: 1rem 0;
+}
+
+.search-container form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.search-container input[type="search"] {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  outline: none;
+  font-size: 0.95rem;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+.search-container input[type="search"]::placeholder {
+  color: var(--text-muted);
+}
+
+.search-container button[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  font-weight: 600;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.search-container button[type="submit"]:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Ефект зображення (Lab 3, п. 3) */
+.image-hover-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 240px;
+  height: 320px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.image-hover-wrapper span {
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  text-align: center;
+  position: absolute;
+  padding: 0 1rem;
+}
+
+.image-hover-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  margin: 0;
+  border-radius: 0;
+}
+
+.image-hover-wrapper:hover img {
+  opacity: 1;
+}
+
+.image-hover-wrapper:hover span {
+  opacity: 0;
+}
+
+/* Зафіксована кнопка в лівому нижньому кутку (Lab 3, п. 2) */
+.fixed-nav-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  font-weight: 700;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.fixed-nav-btn:hover {
+  background-color: var(--primary-hover);
+  color: var(--bg-color);
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+/* Форми та елементи введення */
+form div {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: #ffffff;
