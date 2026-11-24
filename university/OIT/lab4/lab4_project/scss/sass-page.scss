@@ -1,0 +1,59 @@
+$bg-dark: #09223b;
+$surface: #f9f6f0;
+$ink: #112233;
+$ice: #a5d8ff;
+$radius: 14px;
+
+@mixin card-box($pad: 24px) {
+  background: $surface;
+  color: $ink;
+  border-radius: $radius;
+  padding: $pad;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: $bg-dark;
+  color: $surface;
+}
+
+.sass-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px;
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    a {
+      color: $ice;
+      text-decoration: none;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .panel {
+    @include card-box(28px);
+
+    h1 {
+      margin-top: 0;
+      color: $ink;
+    }
+
+    code {
+      background: $ice;
+      color: $ink;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  }
+}

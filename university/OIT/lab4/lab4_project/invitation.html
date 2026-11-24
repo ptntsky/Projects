@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Запрошення та конверт — Лаб. №4 (Завдання 2*)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #09223b;
+      color: #112233;
+      padding: 24px;
+    }
+    .toolbar {
+      max-width: 760px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .toolbar a, .toolbar button {
+      background: #a5d8ff;
+      color: #112233;
+      border: 0;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .sheet {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      gap: 28px;
+    }
+    .invitation-card {
+      background: #f9f6f0;
+      border: 2px solid #184e77;
+      border-radius: 12px;
+      padding: 36px;
+      text-align: center;
+    }
+    .envelope {
+      background: #e9e2d4;
+      border: 2px dashed #184e77;
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+    }
+    .envelope-stamp {
+      float: right;
+      border: 1px solid #112233;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+    }
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .toolbar {
+        display: none;
+      }
+      .invitation-card, .envelope {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href="index.html">← На головну</a>
+    <button type="button" onclick="window.print()">🖨 Друк запрошення та конверта</button>
+  </div>
+
+  <div class="sheet">
+    <section class="invitation-card">
+      <p>ЗАПРОШЕННЯ НА ПОДІЮ</p>
+      <h1>Презентація проєкту та 3D-колекції</h1>
+      <p>Запрошуємо на відкритий показ, обговорення архітектури та живий розбір робіт.</p>
+      <p><strong>Дата:</strong> 15 грудня 2026 р. · <strong>Час:</strong> 16:00</p>
+      <p><strong>Місце:</strong> Чернівці, Факультет математики та інформатики</p>
+    </section>
+
+    <section class="envelope" aria-label="Конверт для запрошення">
+      <div class="envelope-stamp">STAMP / 2026</div>
+      <p><strong>Відправник:</strong> Peter Griffin, Чернівці</p>
+      <p><strong>Отримувач:</strong> Запрошений гість</p>
+    </section>
+  </div>
+</body>
+</html>

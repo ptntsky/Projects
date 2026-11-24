@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peter Griffin — Портфоліо та хроніки (Лаб. №4)</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body id="top">
+  <!-- Фіксована шапка -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="brand">Peter Griffin</a>
+
+      <!-- Адаптивне меню без JS (через чекбокс) -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Відкрити меню" />
+      <label for="nav-toggle" class="nav-burger" title="Меню">☰</label>
+
+      <nav class="main-nav" aria-label="Головна навігація">
+        <a href="#about">Про мене</a>
+        <a href="#chronicles">Хроніки</a>
+        <a href="#reviews">Відгуки</a>
+        <div class="dropdown">
+          <button type="button" class="dropbtn">More ▾</button>
+          <div class="dropdown-content">
+            <a href="bootstrap-page.html">Каталог (Bootstrap)</a>
+            <a href="sass-page.html">Стилі Sass/SCSS</a>
+            <a href="invitation.html">Запрошення (Друк)</a>
+          </div>
+        </div>
+        <a href="bootstrap-page.html" class="nav-pill">3D Сумки</a>
+      </nav>
+
+      <!-- Модальне вікно Sign in через :target -->
+      <a href="#auth-modal" class="sign-in-btn" id="signInBtn">Sign in</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Головний банер / картка -->
+    <section id="about" class="card hero-card anim-fade-up">
+      <div class="hero-content">
+        <span class="badge">Чутливий дизайн · Анімації · Валідація</span>
+        <h1>Пітер Гріффін — Чіткий план і нуль зайвого</h1>
+        <p>
+          Швидка статична архітектура, висока контрастність для комфортних очей та практичний підхід без зайвої бюрократії.
+        </p>
+        <div class="hero-actions">
+          <a href="#chronicles" class="btn btn-primary">До хронік</a>
+          <a href="bootstrap-page.html" class="btn btn-ghost">Сторінка Bootstrap</a>
+          <a href="sass-page.html" class="btn btn-ghost">Сторінка Sass</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="photo_5199813293936156743_x.jpg" alt="Аватар" class="avatar-img anim-float" />
+      </div>
+    </section>
+
+    <!-- Сітка карток (CSS Grid) -->
+    <section id="chronicles" class="grid-section">
+      <h2 class="section-title">Хроніки та замітки</h2>
+      <div class="cards-grid">
+        <article class="card anim-fade-up">
+          <h3>01. Адаптивність і медіа-запити</h3>
+          <p>Сітка та навігація перебудовуються під смартфони, планшети й десктоп без горизонтального скролу.</p>
+        </article>
+        <article class="card anim-fade-up">
+          <h3>02. Безпека без зайвого бекенду</h3>
+          <p>Мінімум точок атаки, чиста статика та прямий контакт замість громіздких посередників.</p>
+        </article>
+        <article class="card anim-fade-up">
+          <h3>03. 3D-візуалізація в майбутньому</h3>
+          <p>Інтерактивний огляд моделей прямо в браузері з акцентом на деталі та швидкість завантаження.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Карусель відгуків (п. 6) на чистому CSS radio -->
+    <section id="reviews" class="card reviews-section anim-fade-up">
+      <h2>Відгуки користувачів</h2>
+      <div class="carousel">
+        <input type="radio" name="carousel-slide" id="slide-1" checked />
+        <input type="radio" name="carousel-slide" id="slide-2" />
+        <input type="radio" name="carousel-slide" id="slide-3" />
+
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <blockquote class="review-slide">
+              <p>«Контраст приємний для очей, нічого не ріже зір і швидко відкривається навіть на слабкому інтернеті.»</p>
+              <footer>— Олександр, Квагог</footer>
+            </blockquote>
+            <blockquote class="review-slide">
+              <p>«На телефоні меню зручне, кнопка входу не заважає, а перехід вгору працює плавно.»</p>
+              <footer>— Марія, тестувальниця інтерфейсів</footer>
+            </blockquote>
+            <blockquote class="review-slide">
+              <p>«Мінімалізм без зайвого шуму: одразу видно суть, блоки стоять чітко по сітці.»</p>
+              <footer>— Глен, сусід через дорогу</footer>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="carousel-dots">
+          <label for="slide-1" aria-label="Відгук 1">1</label>
+          <label for="slide-2" aria-label="Відгук 2">2</label>
+          <label for="slide-3" aria-label="Відгук 3">3</label>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Модальне вікно Sign in з валідацією виключно на HTML5 + CSS (п. 3 та п. 13*) -->
+  <div id="auth-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="auth-title">Вхід / Реєстрація</h2>
+        <a href="#top" class="modal-close" aria-label="Закрити вікно">✕</a>
+      </div>
+
+      <form class="auth-form" action="#top" method="get">
+        <div class="form-field">
+          <label for="auth-email">Email</label>
+          <input
+            type="email"
+            id="auth-email"
+            name="email"
+            placeholder="name@example.com"
+            required
+          />
+          <small class="hint-invalid">Введіть коректну адресу електронної пошти.</small>
+          <small class="hint-valid">Email коректний.</small>
+        </div>
+
+        <div class="form-field">
+          <label for="auth-pass">Пароль (мін. 6 символів, літера і цифра)</label>
+          <input
+            type="password"
+            id="auth-pass"
+            name="password"
+            minlength="6"
+            pattern="(?=.*[A-Za-zА-Яа-яІіЇїЄє])(?=.*\d).{6,}"
+            placeholder="••••••••"
+            required
+          />
+          <small class="hint-invalid">Потрібно мінімум 6 символів, хоча б одна літера та цифра.</small>
+          <small class="hint-valid">Пароль відповідає вимогам.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary full-width">Увійти</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Кнопка вгору з плавним переходом (п. 5) -->
+  <a href="#top" class="scroll-top-btn" title="Вгору" aria-label="Прокрутити вгору">↑</a>
+
+  <footer class="site-footer">
+    <p>© 2026 Peter Griffin · Лабораторна робота № 4</p>
+  </footer>
+</body>
+</html>
